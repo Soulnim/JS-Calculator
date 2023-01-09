@@ -2,5 +2,5 @@
 9/1/2023
 
 General layout design :
-![](https://github.com/Soulnim/JS-Calculator/blob/main/Images/photo1673227787.jpeg)
+![](https://cdn.dribbble.com/users/2381635/screenshots/6893304/20190801.png?compress=1&resize=400x300)
 -------------------------------------------------------------
