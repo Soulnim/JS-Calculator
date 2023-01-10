@@ -1,5 +1,7 @@
 const operationList = [];
 
+/* button */
+
 function addOne() {
  operationList.push(1);
  console.log(operationList.join(""));
@@ -78,6 +80,8 @@ function addDivide() {
  document.getElementById("output").innerHTML = operationList.join("");
 }
 
+/* clear list */
+
 function clearList() {
  while (operationList.length > 0) {
   operationList.pop();
@@ -85,4 +89,45 @@ function clearList() {
  console.log(operationList.join(""));
  document.getElementById("output").innerHTML = operationList.join("");
  console.log("cleared");
+}
+
+/* sum */
+
+function sum() {
+  noError = false;
+  for (let i = 0; i < operationList.length; i++) {
+    if (operationList[i] == "+" || operationList[i] == "-" || operationList[i] == "X" || operationList[i] == "/") {
+      if (operationList[i-1] == 1 || operationList[i-1] == 2 || operationList[i-1] == 3 || operationList[i-1] == 4 || operationList[i-1] == 5 || operationList[i-1] == 6 || operationList[i-1] == 7 || operationList[i-1] == 8 || operationList[i-1] == 9) {
+        noError = true;
+      } else {
+        noError = false;
+      }
+      if (operationList[i+1] == 1 || operationList[i+1] == 2 || operationList[i+1] == 3 || operationList[i+1] == 4 || operationList[i+1] == 5 || operationList[i+1] == 6 || operationList[i+1] == 7 || operationList[i+1] == 8 || operationList[i+1] == 9) {
+        noError = true;
+      } else {
+        noError = false;
+      }
+    }
+  }
+  /* filter list */
+  console.log(noError);
+  const trueList = [];
+  if (noError == true) {
+    console.log("proceed");
+    const tempList = [];
+    for (let i = 0; i < operationList.length; i++) {
+      if (operationList[i] == 1 || operationList[i] == 2 || operationList[i] == 3 || operationList[i] == 4 || operationList[i] == 5 || operationList[i] == 6 || operationList[i] == 7 || operationList[i] == 8 || operationList[i] == 9) {
+        tempList.push(operationList[i]);
+      } else {
+        trueList.push(tempList.join(""));
+        trueList.push(operationList[i]);
+        while (tempList.length > 0) {
+          tempList.pop();
+        }
+      }
+    }
+    trueList.push(tempList.join(""));
+  }
+  console.log(trueList)
+  console.log("end");
 }
