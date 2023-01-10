@@ -8,36 +8,33 @@
  <title>JS Calculator</title>
 </head>
 <body>
- <div id="output"></div>
+ <div id="output-div">
+  <div id="output">
+  </div>
+ </div>
  <div id="first-row" class="row">
   <button onclick="clearList()">C</button>
   <button onclick="addPlus()">+</button>
-  <button onclick="addTimes()">X</button>
-  <button>-</button>
+  <button onclick="addMinus()">-</button>
+  <button onclick="addTimes()">*</button>
  </div>
  <div id="second-row" class="row">
   <button onclick="addSeven()">7</button>
   <button onclick="addEight()">8</button>
   <button onclick="addNine()">9</button>
-  <button onclick="addMinus()">-</button>
+  <button onclick="addDivide()">/</button>
  </div>
  <div id="third-row" class="row">
   <button onclick="addFour()">4</button>
   <button onclick="addFive()">5</button>
   <button onclick="addSix()">6</button>
-  <button onclick="addDivide()">/</button>
+  <button onclick="sum()">=</button>
  </div>
  <div id="forth-row" class="row">
   <button onclick="addOne()">1</button>
   <button onclick="addTwo()">2</button>
   <button onclick="addThree()">3</button>
-  <button>=</button>
- </div>
- <div id="fifth-row" class="row">
-  <button>%</button>
-  <button>.</button>
-  <button>,</button>
-  <button>W</button>
+  <button onclick="addZero()">0</button>
  </div>
  <script src="main.js"></script>
 </body>
