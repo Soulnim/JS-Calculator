@@ -56,6 +56,12 @@ function addNine() {
  document.getElementById("output").innerHTML = operationList.join("");
 }
 
+function addZero() {
+ operationList.push(0);
+ console.log(operationList.join(""));
+ document.getElementById("output").innerHTML = operationList.join("");
+}
+
 function addPlus() {
  operationList.push("+");
  console.log(operationList.join(""));
@@ -69,7 +75,7 @@ function addMinus() {
 }
 
 function addTimes() {
- operationList.push("X");
+ operationList.push("*");
  console.log(operationList.join(""));
  document.getElementById("output").innerHTML = operationList.join("");
 }
@@ -96,13 +102,13 @@ function clearList() {
 function sum() {
   noError = false;
   for (let i = 0; i < operationList.length; i++) {
-    if (operationList[i] == "+" || operationList[i] == "-" || operationList[i] == "X" || operationList[i] == "/") {
-      if (operationList[i-1] == 1 || operationList[i-1] == 2 || operationList[i-1] == 3 || operationList[i-1] == 4 || operationList[i-1] == 5 || operationList[i-1] == 6 || operationList[i-1] == 7 || operationList[i-1] == 8 || operationList[i-1] == 9) {
+    if (operationList[i] == "+" || operationList[i] == "-" || operationList[i] == "*" || operationList[i] == "/") {
+      if (operationList[i-1] == 1 || operationList[i-1] == 2 || operationList[i-1] == 3 || operationList[i-1] == 4 || operationList[i-1] == 5 || operationList[i-1] == 6 || operationList[i-1] == 7 || operationList[i-1] == 8 || operationList[i-1] == 9 || operationList[i-1] == 0) {
         noError = true;
       } else {
         noError = false;
       }
-      if (operationList[i+1] == 1 || operationList[i+1] == 2 || operationList[i+1] == 3 || operationList[i+1] == 4 || operationList[i+1] == 5 || operationList[i+1] == 6 || operationList[i+1] == 7 || operationList[i+1] == 8 || operationList[i+1] == 9) {
+      if (operationList[i+1] == 1 || operationList[i+1] == 2 || operationList[i+1] == 3 || operationList[i+1] == 4 || operationList[i+1] == 5 || operationList[i+1] == 6 || operationList[i+1] == 7 || operationList[i+1] == 8 || operationList[i+1] == 9 || operationList[i+1] == 0) {
         noError = true;
       } else {
         noError = false;
@@ -116,7 +122,7 @@ function sum() {
     console.log("proceed");
     const tempList = [];
     for (let i = 0; i < operationList.length; i++) {
-      if (operationList[i] == 1 || operationList[i] == 2 || operationList[i] == 3 || operationList[i] == 4 || operationList[i] == 5 || operationList[i] == 6 || operationList[i] == 7 || operationList[i] == 8 || operationList[i] == 9) {
+      if (operationList[i] == 1 || operationList[i] == 2 || operationList[i] == 3 || operationList[i] == 4 || operationList[i] == 5 || operationList[i] == 6 || operationList[i] == 7 || operationList[i] == 8 || operationList[i] == 9 || operationList[i] == 0) {
         tempList.push(operationList[i]);
       } else {
         trueList.push(tempList.join(""));
@@ -130,4 +136,19 @@ function sum() {
   }
   console.log(trueList)
   console.log("end");
+  
+  let total = parseFloat(trueList[0]);
+  for (let i = 1; i < trueList.length; i=i+2) {
+    if (trueList[i] == "+") {
+      total += parseFloat(trueList[i+1]);
+    } else if (trueList[i] == "-") {
+      total -= parseFloat(trueList[i+1]);
+    } else if (trueList[i] == "*") {
+      total *= parseFloat(trueList[i+1]);
+    } else {
+      total /= parseFloat(trueList[i+1]);
+    }
+  }
+  console.log(total);
+  document.getElementById("output").innerHTML = total;
 }
